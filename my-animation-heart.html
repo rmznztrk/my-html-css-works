@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <style>
+    
+            *{
+                box-sizing: border-box; 
+            }
+            body{
+            /*body icindeki elementleri ortalamak icin flex'ten yararlanalim ve bunun icin display'i flex yapiyoruz ve daha sonra flex'te yatay ve dikey ortaliyoruz  */
+            display: flex;
+            justify-content: center; /*row da ortalar*/
+            align-items: center; /*column da ortalar*/
+            background-color: rgb(255, 188, 252);
+            min-height: 100vh; /*yukseklik ekranin boyutuna esit veya daha buyuk 
+            vh: vertical height (body'nin minumum yuksekligini ekranin %100'unu(tamamini) kaplasin )*/
+          
+
+            /* Ve biz min-height'i ayarlayinca sag scrool bar gorunmeye basladi bunu kapatmak icin overflow: hidden; */
+            /* max-width: 900;
+            min-width: 900; */
+            overflow: hidden;
+        }
+        .kalp{
+            position: relative;
+            width: 200px;
+            height: 170px;
+            margin: 20px;
+        }
+ 
+        .kalp:after,
+        .kalp:before{
+            content: "";
+            position: absolute;
+            height: 160px;
+            width: 100px;
+            background-color: rgb(224, 0, 0);
+            border-radius: 50px 50px 0 0;
+        }
+        
+        /* birinci şekil */
+        .kalp:after{
+            -webkit-transform:rotate(45deg);
+            transform:rotate(45deg);
+        
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        
+            left: 0px;
+        }
+ 
+        /* ikinci şekil */
+        .kalp:before{
+            -webkit-transform:rotate(-45deg);
+            transform:rotate(-45deg);
+        
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            
+            left: 100px;
+        }
+
+        .kalp:hover{
+            animation: kalp-atisi 500ms ease-in-out infinite alternate,
+                       buyut 1s ease-in-out infinite alternate; 
+            z-index: 2;
+        }
+        .my-love{
+            animation: bulusturF 7000ms ease-in-out infinite;
+            padding: 0em 0em;
+        }
+        .ramazan{
+            animation: bulusturR 7000ms ease-in-out infinite;
+            padding: 0em 0em;
+        }
+
+        @keyframes kalp-atisi {
+            0%{
+                opacity: .75;
+            }
+            50%{
+                opacity: .5;
+            }
+            100%{
+                opacity: .9;
+                
+            }
+        }
+        @keyframes buyut {
+            0%{
+                transform: scale(1) rotate(2deg);
+            }
+            50%{
+                transform: scale(2) rotate(-4deg);
+            }
+            100%{
+                transform: scale(3.1) rotate(6deg);
+                
+            }
+        
+        }
+        @keyframes bulusturF {
+            0%{
+                transform: translate(-150px);
+            }
+            30%{
+                transform: translate(118px);
+            }
+            40%{
+                transform: translate(120px,-42px);                
+            }
+            50%{
+                transform: translate(170px,-33px);
+            }
+        
+            70%{
+                transform: translate(350px,-33px);
+            }
+            /* 80%{
+                transform: translate(370px,-33px);
+            } */
+            100%{
+                transform: translate(970px,-33px);
+            }
+        }
+        @keyframes bulusturR {
+            0%{
+                transform: translate(300px);
+            }
+            30%{
+                transform: translate(-118px);
+            }
+            50%{
+                transform: translate(-120px);
+            }
+
+            70%{
+                transform: translate(60px);
+            }
+/* 
+            80%{
+               transform: translate(80px)
+            } */
+            100%{
+                transform: translate(680px)
+            }  
+        
+            
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
+        .my-love{
+            font-family: 'Princess Sofia', cursive;
+            font-weight: bold;
+            font-size: 1.5rem;
+            background-color: rgb(255, 188, 252);
+            border: none;
+            outline: none;
+            z-index: -1;
+        }
+        .ramazan{
+            font-family: 'Princess Sofia', cursive;
+            font-weight: bold;
+            font-size: 1.25rem;
+            background-color: rgb(255, 188, 252);
+            border: none;
+            outline: none;
+            z-index: -6;
+        }
+
+
+    </style>
+</head>
+<body>
+  
+    <button class="my-love"> java | react </button>
+
+    <div class="kalp"></div>
+
+    <button class="ramazan">Ramazan</button>
+   
+</body>
+</html>
